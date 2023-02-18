@@ -23,7 +23,7 @@
        <p> (inclusive, i.e, you should be at least 18 and at most 65 years old) </p>
 
        <label for="age">Choose an option:</label>
-       <select name="age" id="age" class="form-control">
+       <select name="age" id="age" class="form-control elg-crit">
          <option value="yes">Yes</option>
          <option value="no">No</option>
        </select>
@@ -33,7 +33,7 @@
        <h2> <b> Q2. </b> Are you a native speaker of English? </h2>
        <p> (British or American English only) </p>
        <label for="native_lg">Choose an option:</label>
-       <select name="native_lg" id="native_lg" class="form-control">
+       <select name="native_lg" id="native_lg" class="form-control elg-crit">
          <option value="yes">Yes</option>
          <option value="no">No</option>
        </select>
@@ -43,26 +43,38 @@
        <h2> <b> Q3. </b> Do you have any listening disablities that can impact your judgment? </h2>
 
        <label for="hearing_db">Choose an option:</label>
-       <select name="hearing_db" id="hearing_db" class="form-control">
+       <select name="hearing_db" id="hearing_db" class="form-control elg-crit">
          <option value="yes">Yes</option>
          <option value="no">No</option>
        </select>
       </div>
       
+      <p class="bg-danger" id="eligible-msg">Sorry, you are not eligible for this study. Make sure to choose the appropriate options applicable to you.</p>
+      
       <div class="form-group">
-       <input id="submit" type="submit" value="Submit" class="btn btn-primary" />
+       <input id="submit" type="submit" value="Proceed" class="btn btn-primary" />
       </div>
      </form>
    </div>
    <script>
       $(document).ready(function() {
-           $('#submit').click(function(e){
+           $('.elg-crit').change(function(e){
                e.stopPropagation();
                e.preventDefault();
                var age = $("#age").val();
                var native_lg = $("#native_lg").val();
                var hearing_db = $("#hearing_db").val();
                console.log(age, native_lg, hearing_db);
+               if (age == "yes" && native_lg == "yes" && hearing_db == "no") {
+                  $("#eligible-msg").html("Your are eligible for the study. Please proceed.");
+                  $("#eligible-msg").removeClass("bg-danger");
+                  $("#eligible-msg").addClass("bg-success");
+               }
+               else {
+                  $("#eligible-msg").html("Sorry, you are not eligible for this study. Make sure to choose the appropriate options applicable to you.");
+                  $("#eligible-msg").removeClass("bg-success");
+                  $("#eligible-msg").addClass("bg-danger");
+               }
                //window.location.href = 'http:google.com?age='Yes'&&native_lg='Yes'&&hearing_db='No';
            });
       });
