@@ -39,7 +39,9 @@
    </form>
    <script>
       $(document).ready(function() {
-           $('#submit').click(function(){ 
+           $('#submit').click(function(e){
+               e.stopPropagation();
+               e.preventDefault();
                var age = $("#age").val();
                var native_lg = $("#native_lg").val();
                var hearing_db = $("#hearing_db").val();
