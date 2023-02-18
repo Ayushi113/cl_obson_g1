@@ -16,9 +16,9 @@
    <div class="container">
      <h1>Thank you for your consent!</h1>
      <h3>Please answer a few screening questions for your eligibility for this test. </h3>
-     <form>
+     <form action="/cl_obson_g1/success.html">
       
-      <div class="form-group">
+      <div class="form-group bg-info">
        <h2><b> Q1. </b> Are you between 18-65 years of age? </h2>
        <p> (inclusive, i.e, you should be at least 18 and at most 65 years old) </p>
 
@@ -29,7 +29,7 @@
        </select>
       </div>
       
-      <div class="form-group">
+      <div class="form-group bg-info">
        <h2> <b> Q2. </b> Are you a native speaker of English? </h2>
        <p> (British or American English only) </p>
        <label for="native_lg">Choose an option:</label>
@@ -39,7 +39,7 @@
        </select>
       </div>
       
-      <div class="form-group">
+      <div class="form-group bg-info">
        <h2> <b> Q3. </b> Do you have any listening disablities that can impact your judgment? </h2>
 
        <label for="hearing_db">Choose an option:</label>
@@ -52,7 +52,7 @@
       <p class="bg-danger" id="eligible-msg">Sorry, you are not eligible for this study. Make sure to choose the appropriate options applicable to you.</p>
       
       <div class="form-group">
-       <input id="submit" type="submit" value="Proceed" class="btn btn-primary" />
+       <input id="submit" type="submit" value="Proceed" disabled class="btn btn-primary" />
       </div>
      </form>
    </div>
@@ -69,11 +69,13 @@
                   $("#eligible-msg").html("Your are eligible for the study. Please proceed.");
                   $("#eligible-msg").removeClass("bg-danger");
                   $("#eligible-msg").addClass("bg-success");
+                  $("#submit").prop("disabled", false);
                }
                else {
                   $("#eligible-msg").html("Sorry, you are not eligible for this study. Make sure to choose the appropriate options applicable to you.");
                   $("#eligible-msg").removeClass("bg-success");
                   $("#eligible-msg").addClass("bg-danger");
+                  $("#submit").prop("disabled", true);
                }
                //window.location.href = 'http:google.com?age='Yes'&&native_lg='Yes'&&hearing_db='No';
            });
