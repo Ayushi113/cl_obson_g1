@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html>
-
+<head>
+ <meta http-equiv='cache-control' content='no-cache'> 
+ <meta http-equiv='expires' content='0'> 
+ <meta http-equiv='pragma' content='no-cache'>
+</head>
 <body>
-<h1>Thank you for your consent!</h1>
-<h3>Please answer a few screening questions for your eligibility for this test. </h3>
-<form>
-<h2><b> Q1. </b> Are you between 18-65 years of age? </h2>
-<p> (inclusive, i.e, you should be at least 18 and at most 65 years old) </p>
+   <h1>Thank you for your consent!</h1>
+   <h3>Please answer a few screening questions for your eligibility for this test. </h3>
+   <form>
+     <h2><b> Q1. </b> Are you between 18-65 years of age? </h2>
+     <p> (inclusive, i.e, you should be at least 18 and at most 65 years old) </p>
 
-<label for="age">Choose an option:</label>
-<select name="age" id="age">
-<option value="yes">Yes</option>
-<option value="no">No</option>
-</select>
+     <label for="age">Choose an option:</label>
+     <select name="age" id="age">
+       <option value="yes">Yes</option>
+       <option value="no">No</option>
+     </select>
 
-<h2> <b> Q2. </b> Are you a native speaker of English? </h2>
-<p> (British or American English only) </p>
-<label for="native_lg">Choose an option:</label>
-<select name="native_lg" id="native_lg">
-<option value="yes">Yes</option>
-<option value="no">No</option>
-</select>
- 
-<h2> <b> Q3. </b> Do you have any listening disablities that can impact your judgment? </h2>
+     <h2> <b> Q2. </b> Are you a native speaker of English? </h2>
+     <p> (British or American English only) </p>
+     <label for="native_lg">Choose an option:</label>
+     <select name="native_lg" id="native_lg">
+       <option value="yes">Yes</option>
+       <option value="no">No</option>
+     </select>
 
-<label for="hearing_db">Choose an option:</label>
-<select name="hearing_db" id="hearing_db">
-<option value="yes">Yes</option>
-<option value="no">No</option>
-</select>
+     <h2> <b> Q3. </b> Do you have any listening disablities that can impact your judgment? </h2>
 
-<input id="submit" type="submit" value="Submit" />
-</form>
+     <label for="hearing_db">Choose an option:</label>
+     <select name="hearing_db" id="hearing_db">
+       <option value="yes">Yes</option>
+       <option value="no">No</option>
+     </select>
 
-$(document).ready(function() {
-
-      $('#submit').click(function(){ 
-
-      var age = $("#age").val();
-      var native_lg = $("#native_lg").val();
-      var hearing_db = $("#hearing_db").val();      
-
-      window.location.href = 'http:google.com?age='Yes'&&native_lg='Yes'&&hearing_db='No';
-
-    });
-
- });
+     <input id="submit" type="submit" value="Submit" />
+   </form>
+   <script>
+      $(document).ready(function() {
+           $('#submit').click(function(){ 
+               var age = $("#age").val();
+               var native_lg = $("#native_lg").val();
+               var hearing_db = $("#hearing_db").val();
+               console.log(age, native_lg, hearing_db);
+               //window.location.href = 'http:google.com?age='Yes'&&native_lg='Yes'&&hearing_db='No';
+           });
+      });
+   </script>
 </body>
 </html>
